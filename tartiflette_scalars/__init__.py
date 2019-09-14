@@ -1,6 +1,7 @@
 # from tartiflette import Scalar
 from bson import ObjectId as ObjectId_
 from typing import Union
+from typing_extensions import Literal
 from tartiflette.language.ast.base import Node
 from tartiflette.constants import UNDEFINED_VALUE
 
@@ -15,7 +16,7 @@ class Json:
     def coerce_output(val):
         return val
 
-    def parse_literal(self, ast: Node) -> Union[str, UNDEFINED_VALUE]:
+    def parse_literal(self, ast: Node) -> Union[str, Literal[UNDEFINED_VALUE]]:
         return self.coerce_input(ast.value)
 
 
@@ -36,7 +37,7 @@ class AnyScalar:
     def coerce_output(val):
         return val
 
-    def parse_literal(self, ast: Node) -> Union[str, UNDEFINED_VALUE]:
+    def parse_literal(self, ast: Node) -> Union[str, Literal[UNDEFINED_VALUE]]:
         return self.coerce_input(ast.value)
 
 
@@ -49,7 +50,7 @@ class ObjectId:
     def coerce_output(val):
         return str(val)
 
-    def parse_literal(self, ast: Node) -> Union[str, UNDEFINED_VALUE]:
+    def parse_literal(self, ast: Node) -> Union[str, Literal[UNDEFINED_VALUE]]:
         return self.coerce_input(ast.value)
 
 
@@ -62,6 +63,6 @@ class ID:
     def coerce_output(val):
         return val
 
-    def parse_literal(self, ast: Node) -> Union[str, UNDEFINED_VALUE]:
+    def parse_literal(self, ast: Node) -> Union[str, Literal[UNDEFINED_VALUE]]:
         return self.coerce_input(ast.value)
 
