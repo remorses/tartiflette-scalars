@@ -1,6 +1,6 @@
 from setuptools import setup
 
-NAME = 'module'
+NAME = 'tartiflette_scalars'
 setup(
     name=NAME,
     # [bump]
