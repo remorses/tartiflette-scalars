@@ -1,10 +1,13 @@
 # from tartiflette import Scalar
-from bson import ObjectId as ObjectId_
+
 from typing import Union
 from typing_extensions import Literal
 from tartiflette.language.ast.base import Node
 from tartiflette.constants import UNDEFINED_VALUE
-
+try:
+    from bson import ObjectId as ObjectId_
+except Exception:
+    ObjectId_ = lambda: None
 
 
 class Json:
